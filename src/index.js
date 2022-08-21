@@ -50,7 +50,7 @@ function markupPage(countries) {
 
 // Якщо результат запиту - це масив з однією країною, в інтерфейсі відображається розмітка картки з даними про країну: прапор, назва, столиця, населення і мови.
 function markupCard(country) {
-  const countries = Object.values(country.languages).join(', ');
+  const languages = Object.values(country.languages).join(', ');
   const markup = `<div class="country__card">
     <div class="country__head">
       <img class="country__image" src="${country.flags.svg}" alt="Flag" width="150" height="150" >
@@ -66,7 +66,7 @@ function markupCard(country) {
     </div>
     <div class="country__information">
       <b>Languages: </b>
-      <p>${countries}</p>
+      <p>${languages}</p>
     </div>
   </div>`;
 
