@@ -23,10 +23,10 @@ input.addEventListener(
 );
 
 function showResult(countries) {
-  if (countries.length <= 10) {
-    markupPage(countries);
-  } else if (countries.length === 1) {
+  if (countries.length === 1) {
     markupCard(countries[0]);
+  } else if (countries.length <= 10) {
+    markupPage(countries);
   } else {
     overflow();
   }
@@ -50,7 +50,7 @@ function markupPage(countries) {
 
 // Якщо результат запиту - це масив з однією країною, в інтерфейсі відображається розмітка картки з даними про країну: прапор, назва, столиця, населення і мови.
 function markupCard(country) {
-  const languages = Object.values(country.languages).join(', ');
+  const lang = Object.values(country.languages).join(', ');
   const markup = `<div class="country__card">
     <div class="country__head">
       <img class="country__image" src="${country.flags.svg}" alt="Flag" width="150" height="150" >
@@ -66,7 +66,7 @@ function markupCard(country) {
     </div>
     <div class="country__information">
       <b>Languages: </b>
-      <p>${languages}</p>
+      <p>${lang}</p>
     </div>
   </div>`;
 
